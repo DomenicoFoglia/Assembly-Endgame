@@ -1,12 +1,35 @@
-# React + Vite
+# Assembly End Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assembly End Game è un gioco sviluppato in React in cui il giocatore deve indovinare una parola italiana nascosta. Le lettere sbagliate fanno "morire" i linguaggi di programmazione progressivamente, con messaggi ironici. Alla vittoria, viene mostrato un effetto di confetti.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Caratteristiche
 
-## Expanding the ESLint configuration
+- Parole casuali in italiano da un dataset di 10.000 parole.
+- Tastiera virtuale per scegliere lettere.
+- Visualizzazione dinamica dello stato del gioco (vittoria, sconfitta, errori).
+- Messaggi divertenti che cambiano in base al numero di errori.
+- Confetti animati in caso di vittoria.
+- Accessibilità migliorata con `aria-live` e notifiche per screen reader.
+- Pulsante "Nuova partita" per ricominciare da capo.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tecnologie utilizzate
+
+- React 18
+- CSS (con classi personalizzate)
+- [react-confetti](https://www.npmjs.com/package/react-confetti) per l'animazione vittoria
+- [clsx](https://www.npmjs.com/package/clsx) per la gestione delle classi condizionali
+- Dataset di parole italiane (`italianWords.js`)
+
+---
+
+## Installazione
+
+1. Clona il repository:
+
+```bash
+git clone https://github.com/tuo-username/assembly-end-game.git
+cd assembly-end-game
