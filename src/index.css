@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background-color: #262626;
+  color: #D9d9d9;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 1rem 0;
+}
+
+header > h1 {
+  color: #caca5c;
+  margin-bottom: 0.5rem;
+}
+
+header > p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #8e8e8e;
+}
+
+
+section.game-status{
+  background-color: rgb(94, 186, 2);
+  
+}
+
+.language {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.language.dead {
+  opacity: 0.2;
+  filter: grayscale(100%);
+  transform: scale(0.95);
+}
+
+.language.dead::before {
+  content: "💀 ";
+  margin-right: 0.3rem;
+}
+
+.box{
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 3px solid #b5ee0a;
+  border-radius: 0.5rem;
+  background-color: #323232;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .box {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .box {
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+  }
+}
+
+section.keyboard{
+  flex-wrap: wrap;
+  max-width: 450px;
+}
+
+section.keyboard > button{
+  height: 35px;
+  width: 35px;
+  background-color: #fcba29;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  cursor:pointer;
+}
+
+section.keyboard > button.correct{
+  background-color: #10a95b;
+}
+
+section.keyboard > button.wrong{
+  background-color: #ec5d49;
+}
+
+.btn-new-game {
+  background-color: #93bf0d;
+  color: #262626; 
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(124, 163, 7, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-new-game:hover {
+  background-color: #8ab109;
+  box-shadow: 0 6px 8px rgba(163, 210, 5, 0.6);
+}
+
+.btn-new-game:active {
+  background-color: #718f04;
+  box-shadow: 0 2px 4px rgba(139, 177, 4, 0.8);
+  transform: translateY(2px);
+}
