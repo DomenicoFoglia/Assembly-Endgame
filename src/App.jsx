@@ -6,13 +6,20 @@ import Language from './components/Language'
 import Box from './components/Box'
 import clsx from 'clsx';
 import getRandomDeathMessage from './messages';
+import italianWord from './italianWords'
 
 function AssemblyEndGame() {
   // State values
-  const [currentWord, setCurrentWord] = useState("elefante");
+  const [currentWord, setCurrentWord] = useState("");
   const [guessedLetters, setGuessedLetters] = useState([]);
+
+  useEffect(() => {
+    const index = Math.floor(Math.random() * italianWord.length)
+    setCurrentWord(italianWord[index]);
+  }, [])
   
   // Valori derivati
+  const numGuessLeft = languages.legth - 1;
   const wrongAttempts = guessedLetters.filter(
     letter => !currentWord.includes(letter)).length;
   const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter) );
@@ -95,7 +102,11 @@ function AssemblyEndGame() {
   );
 }
 
-
+  function startNewGame(){
+    setGuessedLetters([]);
+    const index = Math.floor(Math.random() * italianWord.length);
+    setCurrentWord(italianWord[index]);
+  }
 
   return (
     <>
@@ -124,12 +135,14 @@ function AssemblyEndGame() {
             <p>
               {currentWord.includes(lastAttempt) ? 
                 `Correct! the letter ${lastAttempt} is inthe word!` :
-                `Sorry, the letter ${lastAttempt} is not in the word`}
+                `Sorry, the letter ${lastAttempt} is not in the word`
+              }
+              You have {numGuessLeft} attempts left.
             </p>
             <p>Current word: {currentWord.split("").map(letter => guessedLetters.includes(letter) ? letter + "." : "blank")}</p>
         </section>
         <section className='container mt-5 d-flex justify-content-center'>
-          {isGameOver && <button className='btn btn-new-game'>New game</button>}
+          {isGameOver && <button onClick={startNewGame} className='btn btn-new-game'>Nuova partita</button>}
         </section>
       </main>
     </>

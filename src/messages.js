@@ -1,15 +1,15 @@
 function getRandomDeathMessage(language) {
     const messages = [
-        `Farewell, ${language}. It was good while it lasted.`,
-        `${language} has vanished into the digital abyss.`,
-        `The compiler said goodbye to ${language}.`,
-        `${language} has crashed forever.`,
-        `A fatal error struck ${language}.`,
-        `${language} experienced a kernel panic.`,
-        `The debugger no longer recognizes ${language}.`,
-        `A segfault took down ${language}.`,
-        `${language} has been deprecated... for good.`,
-        `RAM will never remember ${language} again.`
+        `Addio, ${language}. È stato bello finché è durato.`,
+        `${language} è svanito nell'abisso digitale.`,
+        `Il compilatore ha detto addio a ${language}.`,
+        `${language} si è bloccato per sempre.`,
+        `Un errore fatale ha colpito ${language}.`,
+        `${language} ha avuto un kernel panic.`,
+        `Il debugger non riconosce più ${language}.`,
+        `Un segfault ha eliminato ${language}.`,
+        `${language} è stato deprecato... per sempre.`,
+        `La RAM non ricorderà mai più ${language}.`
     ];
 
     const randomIndex = Math.floor(Math.random() * messages.length);
