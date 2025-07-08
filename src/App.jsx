@@ -46,6 +46,8 @@ function AssemblyEndGame() {
         className={className}
         key={letter} 
         disabled={isGameOver}
+        aria-disabled={guessedLetters.includes(letter)}
+        aria-label={`Letter ${letter}`}
         onClick={() => addGuessedLetter(letter)}>
           {letter.toUpperCase()}
       </button>
@@ -62,7 +64,7 @@ function AssemblyEndGame() {
     console.log(msg);
     
     return (
-      <section className="container rounded mt-5 status-message game-status-error status-animate">
+      <section aria-live='polite' role='status' className="container rounded mt-5 status-message game-status-error status-animate">
         <div className="d-flex justify-content-center flex-column align-items-center" style={{ minHeight: "120px" }}>
           <h2 className="mt-2">Oops!</h2>
           <p className="mb-2">{msg}</p>
@@ -74,7 +76,7 @@ function AssemblyEndGame() {
   // Se il gioco è finito
   if (isGameOver) {
     return (
-      <section
+      <section aria-live='polite' role='status'
         className={`container rounded mt-5 status-message
           ${isGameWon ? "game-status-win status-animate" : "game-status-lost status-animate"}`}>
         <div className="d-flex justify-content-center flex-column align-items-center" style={{ minHeight: "120px" }}>
@@ -87,7 +89,7 @@ function AssemblyEndGame() {
 
   // Inizio gioco, niente da mostrare ma mantieni spazio vuoto
   return (
-    <section className="container rounded mt-5 status-message" style={{ minHeight: "120px" }}>
+    <section aria-live='polite' role='status' className="container rounded mt-5 status-message" style={{ minHeight: "120px" }}>
       {}
     </section>
   );
@@ -116,6 +118,15 @@ function AssemblyEndGame() {
         </section>
         <section className="keyboard d-flex justify-content-center gap-1 mt-2 mx-auto">
           {keyboardElements}
+        </section>
+        {/* For screen-reader */}
+        <section className='sr-only' aria-live='polite' role='status'>
+            <p>
+              {currentWord.includes(lastAttempt) ? 
+                `Correct! the letter ${lastAttempt} is inthe word!` :
+                `Sorry, the letter ${lastAttempt} is not in the word`}
+            </p>
+            <p>Current word: {currentWord.split("").map(letter => guessedLetters.includes(letter) ? letter + "." : "blank")}</p>
         </section>
         <section className='container mt-5 d-flex justify-content-center'>
           {isGameOver && <button className='btn btn-new-game'>New game</button>}
