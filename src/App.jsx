@@ -7,8 +7,7 @@ import Box from './components/Box'
 import clsx from 'clsx';
 import getRandomDeathMessage from './messages';
 import italianWord from './italianWords'
-import Confetti from 'react-confetti'
-import { useWindowSize } from 'react-use';
+
 
 function AssemblyEndGame() {
   // State values
@@ -115,7 +114,7 @@ function AssemblyEndGame() {
     <Header />
       <main>
         {renderGameStatus(isGameOver, isGameWon, wrongAttempts, languages)}
-        {isGameWon && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} numberOfPieces={1000}/>}
+        
         <section className='container rounded mt-5'>
           <div className='d-flex flex-wrap justify-content-center gap-2'>
             {
